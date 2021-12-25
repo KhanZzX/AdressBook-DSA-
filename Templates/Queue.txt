@@ -1,0 +1,149 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package queue;
+
+/**
+ *
+ * @author Ahsan Shakeel
+ */
+
+
+//LAB TASK
+public class Queue {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    int items[];
+    int maxsize;
+    int front;
+    int rear;
+    int size;
+
+   public Queue(int[] items, int maxsize, int front, int rear, int size) {
+        this.items = items;
+        this.maxsize = maxsize;
+        this.front = front;
+        this.rear = rear;
+        this.size = size;
+    }
+ public Queue(int size)
+ {
+     items = new int [size];
+     maxsize = size;
+     front = 0;
+     rear = -1;
+     size = 0;
+ }
+ 
+ public int size()
+    {
+        return size;
+    }
+ 
+    public Boolean isEmpty()
+    {
+        return (size() == 0);
+    }
+ 
+
+    public Boolean isFull()
+    {
+        return (size() == maxsize);
+    }
+ 
+ 
+       public void dequeue()
+    {
+        if (isEmpty())
+        {
+        System.out.println("Queue is Empty");
+            
+        }
+ else
+        System.out.println("Removing " + items[front]);
+ 
+        front = (front + 1) % maxsize;
+        size--;
+    }
+       
+          public void enqueue(int item)
+    {
+      
+        if (isFull())
+        {
+            System.out.println("Queue is Full");
+            
+        }
+ 
+        System.out.println("Inserting " + item);
+ 
+        rear = (rear + 1) % maxsize;
+        items[rear] = item;
+        size =size+1;
+    }
+ 
+  
+    public int front()
+    {
+        if (isEmpty()) 
+        {
+            System.out.println("Queue is Empty");
+           
+        }
+        return items[front];
+    }
+    
+  void display() {
+  
+        System.out.println("Front element is: " + front());
+        
+ 
+        System.out.println("Queue size is " + size());
+ 
+        
+        //q.enqueue(6);
+        //q.enqueue(7);
+        
+        if (isEmpty())
+            System.out.println("Queue Is Empty");
+        else
+            System.out.println("Queue Is Not Empty");
+          
+}
+  
+    
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Queue pt = new Queue(5);
+        
+        pt.enqueue(1);
+        pt.enqueue(2);
+        pt.enqueue(3);
+        pt.enqueue(4);
+        pt.enqueue(5);
+      //  pt.display();
+        
+        pt.dequeue();
+      //  pt.display();
+        pt.dequeue();
+        pt.dequeue();
+        pt.dequeue();
+        
+        pt.enqueue(7);
+        pt.enqueue(6);
+        pt.display();
+
+      
+    }
+    
+
+
+
+}

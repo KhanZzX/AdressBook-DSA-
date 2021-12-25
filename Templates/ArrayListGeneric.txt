@@ -1,0 +1,102 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package arrlist;
+
+/**
+ *
+ * @author Ahsan Shakeel
+ */
+public class ArrList <T>
+{
+private static final int SIZE = 10;
+private T[] arr;
+private int size;
+
+public ArrList()
+{
+    this.arr = (T[]) new Object [SIZE];
+    this.size = 0;
+}
+void insertAtEnd(T data)
+{
+   arr[size] = data;
+   size++;
+
+}
+
+void insertAtIndex(T data, int i)
+{
+    if(i < size || i> size)
+    {
+        System.out.println("Incorrect Index. Try again!");
+    }
+ else
+        arr[i]= data;
+size++;
+
+}
+void removeAtEnd()
+{
+    if(size!=0)
+    {
+       size--;
+        
+    }
+else
+         System.out.println("Size is already 0.");
+
+}
+
+void removeAtIndex(int i)
+{
+if(i<size || i>size)
+{
+  for(int j = i; j<size; j++)
+  {
+      arr[j]= arr[j+1];
+  }
+  size--;
+}
+else
+    System.out.println("Invalid Index");
+
+}
+
+
+
+int find( T data)
+{ int current;
+    for (int i = 1; i<size; i++)
+    {
+        if(arr[i]==data)
+             System.out.println("Data Found");
+  current = i;
+    return current;
+    }
+return 0;
+}
+int length()
+{
+    return size;
+}
+
+void isEmpty()
+{
+    if(size==0)
+        System.out.println("List is Empty!");
+else
+       System.out.println("List is not Empty!");
+}
+
+
+void display()
+{
+    for(int i = 0; i <size; i++)
+    {
+        System.out.print(arr[i]+ "->");
+    }
+}
+}

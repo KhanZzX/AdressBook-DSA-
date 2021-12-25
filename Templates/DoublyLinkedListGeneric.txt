@@ -1,0 +1,183 @@
+ class DoublyLinkedList<T>
+{
+    
+private Node<T> head ;
+private Node<T> tail ;
+private int size=0;
+public DoublyLinkedList()
+ {
+  head = null;
+  tail = null;
+ 
+     
+ }
+    
+    
+private class Node <T>
+{
+   private T data;
+   private Node next;
+   private Node previous;
+   
+    Node (T data)
+    {
+        this.data = data;
+        size++;
+    }
+		public T getData()
+		{
+			return data;
+		}
+ 
+		public Node<T> getNext()
+		{
+			return next;
+		}
+ 
+ 
+		public void setNext(Node<T> next)
+		{
+			this.next = next;
+		}
+
+                public Node<T> getPrevious()
+                {
+                    return previous;
+                }
+                public void setPrevious(Node<T> previous)
+                {
+                    this.previous = previous;
+                }
+
+}
+
+ 
+ public void insertAtEnd(T data)
+{
+        
+        Node<T> insertNode = new Node(data);  
+  
+    
+        if(head == null) 
+        {  
+           head = insertNode;
+           tail = insertNode;
+           head.previous = null;  
+           tail.next = null;  
+        } 
+        else
+        {  
+            
+            tail.next = insertNode;    
+            insertNode.previous = tail;  
+            tail = insertNode;  
+            tail.next = null;  
+        }  
+    } 
+
+ 
+ 
+ 
+public void removeStart()
+	{
+            
+             Node<T> current = head;
+		
+            if(head == null)
+             {
+                 System.out.println("Error, List is empty");
+             }
+ 
+		head = head.getNext(); //head to  next element
+	        current.setNext(null);
+                size--;
+    
+	
+        }
+
+
+public void removeEnd()
+{
+     Node temp = head; 
+        
+                        while (temp.next.next != null) 
+                        
+                            temp = temp.next; 
+                        temp.next = null;    
+                        size--;
+                        
+                        }
+
+
+
+
+    void remove( Node p) 
+    { 
+        p.previous.next = p.next;
+        p.next.previous = p.previous;
+        size--;
+    }
+
+
+
+
+
+public void removeAtIndex(int x)
+{
+
+  {
+        
+        if (head == null)
+        { 
+            return;
+        }
+        if (x<0)
+        {
+            return;
+        }
+        
+        Node current = head;
+        
+ 
+        for (int i = 1; current != null && i < x; i++)
+        {
+            current = current.next;
+        }
+         
+ 
+        if (current == null)
+            return;
+        remove(current);
+    }
+}
+  
+    
+
+ 
+ 
+    public int size()
+    {  
+        System.out.println(size);
+               return size;
+    }
+
+
+ 
+ public void display()
+{
+ Node current = head;
+    if(head == null)
+    {
+        System.out.println("Error, List is empty");
+    return;
+    }
+    while(current!=null)
+     {
+         System.out.println("List is " + current.getData());
+     
+    current = current.getNext() ;
+    //we can also do
+    // current = current.next;
+     }
+}
+

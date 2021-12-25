@@ -1,0 +1,74 @@
+ class Stack
+{
+ static final int maximum = 100;
+ int arr[] = new int [maximum];
+ int topElement;
+ 
+Stack()
+ {
+     topElement = -1;
+ }
+ 
+ 
+ void isEmpty()
+ {
+    if(topElement<0)
+     System.out.println(" Stack is empty");
+ 
+ }
+ 
+ void push(int j)
+ {
+   if (topElement>=(maximum-1))
+   {
+       System.out.println("Stack out of bounds.");
+   }
+ 
+ else
+   {
+       //arr[topElement++]=j;  
+       arr[++Elementtop]=j;  
+   }
+ 
+ }
+ 
+void delete()
+ {
+ 
+     if(topElement<0)
+   {
+       System.out.println("Error. Stack is below 0.");
+   
+   }
+ 
+   else
+     {
+         int j = arr[topElement--];
+     System.out.println(j + " Removed Successfully");
+     }  
+ }
+ 
+ void tOpElement()
+ {
+     if(topElement<0)
+     {
+         System.out.println("Error. Stack is below 0.");
+     }
+ else
+     {
+         int i = arr[topElement];
+     System.out.println(i + " is the top element of the stack ");
+     
+     }
+ }
+  
+ void display()
+ {
+     for(int i = 0; i <=topElement; i++)
+     {
+        System.out.println(arr[i]+ " is now in Stack ");
+     }   
+ 
+ 
+ }
+ 
